@@ -4,8 +4,7 @@ from typing import Literal,Optional,Any
 from pydantic import BaseModel,Field 
 from utils.config_loader import load_config 
 from langchain_groq import ChatGroq 
-from langchain_openai import ChatOpenAi 
-
+from langchain_openai import ChatOpenAI
 
 class ConfigLoader:
 
@@ -42,6 +41,6 @@ class ModelLoader:
             print("Loading LLM from OpenAI..........")
             openai_api_key = os.getenv("OPENAI_API_KEY")
             model_name = self.config["llm"]["openai"]["model_name"]
-            llm = ChatOpenAi(model_name="o4-mini",api_key=openai_api_key)
+            llm = ChatOpenAI(model_name="o4-mini",api_key=openai_api_key)
 
         return llm

@@ -1,6 +1,6 @@
 import streamlit as st 
 import datetime 
-import request 
+import requests
 import sys 
 
 BASE_URL="http://localhost:8000"
@@ -31,7 +31,7 @@ if submit_button and user_input.strip():
         # show thinking spinner while backend process
         with st.spinner("The AI is thinking....."):
             payload = {"question": user_input}
-            response = request.post(f"{BASE_URL}/query", json=payload)
+            response = requests.post(f"{BASE_URL}/query", json=payload)
 
         if response.status_code == 200:
             answer = response.json().get("answer", "No answer returned.")
